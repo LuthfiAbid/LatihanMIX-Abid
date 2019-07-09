@@ -8,6 +8,6 @@
 
     <item
             android:id="@+id/navigation2"
-            android:icon="@android:drawable/ic_menu_search"
-            android:title="Search"/>
+            android:icon="@android:drawable/ic_menu_upload"
+            android:title="Upload"/>
 </menu>
