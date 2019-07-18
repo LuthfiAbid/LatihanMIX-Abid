@@ -1,6 +1,7 @@
 package com.abid.androidlatihanmix_abid
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -33,10 +34,10 @@ class HomeFragment : Fragment(), BukuAdapter.FirebaseDataListener {
     }
 
     override fun onUpdateData(buku: BukuModel, position: Int) {
-//        var datax = buku.getKey()
-//        val intent = Intent(this, TambahData::class.java)
-//        intent.putExtra("kode", datax)
-//        startActivity(intent)
+        var datax = buku.getKey()
+        val intent = Intent(context, TambahData::class.java)
+        intent.putExtra("kode", datax)
+        startActivity(intent)
     }
 
     private var bukuAdapter: BukuAdapter? = null
@@ -63,10 +64,6 @@ class HomeFragment : Fragment(), BukuAdapter.FirebaseDataListener {
         rcView!!.setHasFixedSize(true)
         fAuth = FirebaseAuth.getInstance()
 
-//        fab_tambah.setOnClickListener {
-//            startActivity(Intent(context, TambahData::class.java))
-//        }
-
         dbref = FirebaseDatabase.getInstance().getReference("dataBuku/${helperPref.getUID()}")
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -81,14 +78,12 @@ class HomeFragment : Fragment(), BukuAdapter.FirebaseDataListener {
                         addDataAll!!.setKey(dataSnapshot.key!!)
                         list!!.add(addDataAll)
                         bukuAdapter =
-                            BukuAdapter(context!!, list!!)
+                            BukuAdapter(activity!!, list!!)
                     }
                 }
                 rcView!!.adapter = bukuAdapter
             }
         })
-
-
     }
 
     companion object {

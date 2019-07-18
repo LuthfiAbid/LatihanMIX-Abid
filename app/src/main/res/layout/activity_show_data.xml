@@ -15,17 +15,41 @@
             android:orientation="vertical">
         <ImageView
                 android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:id="@+id/imageStorage"
                 android:src="@mipmap/ic_launcher"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:id="@+id/tv_deskripsi"
-                android:text="Deskripsi gambar"
+                android:id="@+id/tv_title"
+                android:text="Judul"
                 android:textSize="20sp"
+                android:textStyle="bold"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/tv_nama"
+                android:text="Penulis"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/tv_tanggal"
+                android:text="Tanggal Rilis"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:id="@+id/tv_desc"
+                android:text="Deskripsi"
+                android:textSize="14sp"
                 android:textStyle="bold"/>
     </LinearLayout>
 </LinearLayout>

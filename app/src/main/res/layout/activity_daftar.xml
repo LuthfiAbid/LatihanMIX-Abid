@@ -21,6 +21,14 @@
             android:textStyle="bold"
             android:textColor="@android:color/background_dark"/>
     <EditText
+            android:id="@+id/et_nama_daftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:hint="Nama"
+            android:layout_marginBottom="20dp"
+            android:inputType="text"/>
+    <EditText
             android:id="@+id/et_email_daftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,13 +44,6 @@
             android:hint="Password"
             android:layout_marginBottom="20dp"
             android:inputType="textPassword"/>
-    <!--<EditText-->
-    <!--android:id="@+id/et_konfirm"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginHorizontal="30dp"-->
-    <!--android:hint="Konfirm Password"-->
-    <!--android:inputType="textPassword"/>-->
     <Button
             android:id="@+id/Signup"
             android:layout_width="wrap_content"

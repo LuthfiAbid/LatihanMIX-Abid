@@ -24,7 +24,6 @@ class LoginActivity : AppCompatActivity() {
     //firebase auth
     private lateinit var fAuth: FirebaseAuth
     private lateinit var btn_register: Button
-    private lateinit var btn_login: Button
     private lateinit var et_email: EditText
     private lateinit var et_password: EditText
 //    val sharedPreference : Preferences = Preferences(this)
@@ -32,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        btn_login = findViewById(R.id.btn_login)
         btn_register = findViewById(R.id.btn_register)
         et_email = findViewById(R.id.et_email)
         et_password = findViewById(R.id.et_passowrd)
@@ -46,27 +44,33 @@ class LoginActivity : AppCompatActivity() {
             .build()
 
         mGoogleSignIn = GoogleSignIn.getClient(this, gso)
-        btn_login.setOnClickListener {
-            signIn()
-        }
 
         btn_login.setOnClickListener {
-            if (et_email.length() == 0) {
+            if (!et_email.text.isNotEmpty() || !et_password.text.isNotEmpty()) {
                 et_email.error = "Email harus diisi!"
-            } else if (et_password.length() == 0) {
                 et_password.error = "Password harus diisi!"
             } else {
                 val intent = Intent(this, MainActivity::class.java)
                 Preferences(this).setStatusInput(true)
                 Preferences(this).setEmail(et_email.text.toString())
-                startActivity(intent)
+                fAuth.signInWithEmailAndPassword(et_email.text.toString(), et_password.text.toString())
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Welcome ${fAuth.currentUser!!}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(applicationContext, "user tidak ditemukan", Toast.LENGTH_SHORT).show()
+                        }
+                    }
             }
         }
-
         btn_login_google.setOnClickListener {
             signIn()
         }
-
         btn_register.setOnClickListener {
             val intent = Intent(this, Daftar::class.java)
             startActivity(intent)
@@ -77,7 +81,6 @@ class LoginActivity : AppCompatActivity() {
         val signInIntent = mGoogleSignIn.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
-
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
         Log.d("FAUTH_LOGIN", "firebaseAuth : ${account.id}")
 

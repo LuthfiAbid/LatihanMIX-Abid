@@ -1,5 +1,6 @@
 package com.abid.androidlatihanmix_abid
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
@@ -23,6 +24,8 @@ class ProfileActivity : AppCompatActivity() {
         btn_logout.setOnClickListener {
             fAuth.signOut()
             finish()
+            Preferences(this).setStatusInput(false)
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

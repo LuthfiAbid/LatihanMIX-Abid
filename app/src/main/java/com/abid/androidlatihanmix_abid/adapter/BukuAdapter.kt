@@ -23,7 +23,7 @@ class BukuAdapter : RecyclerView.Adapter<BukuAdapter.BukuViewHolder> {
     lateinit var Pref: Preferences
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): BukuViewHolder {
-        val view: View = LayoutInflater.from(p0.context).inflate(R.layout.activity_main, p0, false)
+        val view: View = LayoutInflater.from(p0.context).inflate(R.layout.activity_show_data, p0, false)
         val bukuViewHolder = BukuViewHolder(view)
 
         return bukuViewHolder
@@ -39,7 +39,10 @@ class BukuAdapter : RecyclerView.Adapter<BukuAdapter.BukuViewHolder> {
         Glide.with(mContext).load(bukuModel.geturlImage())
             .centerCrop()
             .into(p0.imageRv)
-        p0.tv_deskripsi.text = bukuModel.getJudul()
+        p0.tv_nama.text = bukuModel.getNama()
+        p0.tv_tanggal.text = bukuModel.getTanggal()
+        p0.tv_judul.text = bukuModel.getJudul()
+        p0.tv_desc.text = bukuModel.getDesc()
         p0.ll_content.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(v: View?): Boolean {
                 val builder = AlertDialog.Builder(mContext)
@@ -68,14 +71,20 @@ class BukuAdapter : RecyclerView.Adapter<BukuAdapter.BukuViewHolder> {
 
     inner class BukuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var rc_view2: LinearLayout
-        var tv_deskripsi: TextView
+        var tv_nama: TextView
+        var tv_tanggal: TextView
+        var tv_judul: TextView
+        var tv_desc: TextView
         var ll_content: LinearLayout
         var imageRv: ImageView
 
         init {
             imageRv = itemView.findViewById(R.id.imageStorage)
             rc_view2 = itemView.findViewById(R.id.ll_content)
-            tv_deskripsi = itemView.findViewById(R.id.tv_deskripsi)
+            tv_nama = itemView.findViewById(R.id.tv_nama)
+            tv_tanggal = itemView.findViewById(R.id.tv_tanggal)
+            tv_judul = itemView.findViewById(R.id.tv_title)
+            tv_desc = itemView.findViewById(R.id.tv_desc)
             ll_content = itemView.findViewById(R.id.ll_content)
         }
     }

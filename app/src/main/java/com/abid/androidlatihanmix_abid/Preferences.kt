@@ -16,25 +16,6 @@ class Preferences {
         sharedSet = mContext.getSharedPreferences("APLIKASITESDB", Context.MODE_PRIVATE)
     }
 
-
-    private val PREFS_NAME = "TEST"
-
-    fun setStatusInput(status: Boolean) {
-        val editor: SharedPreferences.Editor = sharedSet.edit()
-        editor.putBoolean("STATUS", status)
-        editor.apply()
-    }
-
-    fun cekStatus(): Boolean {
-        return sharedSet.getBoolean("STATUS", false)
-    }
-
-    fun setEmail(email: String) {
-        val editor: SharedPreferences.Editor = sharedSet.edit()
-        editor.putString("EMAIL", email)
-        editor.apply()
-    }
-
     fun saveUID(uid: String) {
         val edit = sharedSet.edit()
         edit.putString(USER_ID, uid)
@@ -55,7 +36,15 @@ class Preferences {
         return sharedSet.getInt(COUNTER_ID, 1)
     }
 
-    fun getEmail(): String {
-        return sharedSet.getString("EMAIL", "")
+    fun setEmail(email: String) {
+        val editor: SharedPreferences.Editor = sharedSet.edit()
+        editor.putString("EMAIL", email)
+        editor.apply()
+    }
+
+    fun setStatusInput(status: Boolean) {
+        val editor: SharedPreferences.Editor = sharedSet.edit()
+        editor.putBoolean("STATUS", status)
+        editor.apply()
     }
 }

@@ -10,4 +10,8 @@
             android:id="@+id/navigation2"
             android:icon="@android:drawable/ic_menu_upload"
             android:title="Upload"/>
+    <item
+            android:id="@+id/navigation3"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Profile"/>
 </menu>

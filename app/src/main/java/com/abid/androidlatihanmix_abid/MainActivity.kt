@@ -1,6 +1,5 @@
 package com.abid.androidlatihanmix_abid
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -8,8 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
 import com.abid.androidlatihanmix_abid.adapter.BukuAdapter
 import com.abid.androidlatihanmix_abid.model.BukuModel
 import com.google.firebase.auth.FirebaseAuth
@@ -51,6 +48,11 @@ class MainActivity : AppCompatActivity(), BukuAdapter.FirebaseDataListener {
                     addFragment(fragment2)
                     return true
                 }
+                R.id.navigation3 -> {
+                    val fragment3 = ProfileFragment()
+                    addFragment(fragment3)
+                    return true
+                }
             }
             return false
         }
@@ -75,17 +77,5 @@ class MainActivity : AppCompatActivity(), BukuAdapter.FirebaseDataListener {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         val fragment = HomeFragment.newInstance()
         addFragment(fragment)
-//        viewpager_main.adapter = MyPagerAdapter(supportFragmentManager)
-        val profile = findViewById<ImageView>(R.id.profile)
-        val tv_profile = findViewById<TextView>(R.id.tv_profile)
-
-        profile.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }
-        tv_profile.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

@@ -1,44 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".UploadFragment">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".TambahData"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/img_placeholder"
+            android:src="@android:drawable/ic_menu_upload"
+            tools:src="@mipmap/ic_launcher"/>
+    <ProgressBar
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-        <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:id="@+id/img_placeholder"
-                android:src="@android:drawable/ic_menu_upload"
-                tools:src="@mipmap/ic_launcher"/>
-        <ProgressBar
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="?android:attr/progressBarStyle"
-                android:id="@+id/progressDownload"
-                android:visibility="gone"/>
-        <EditText
-                android:id="@+id/et_keterangan"
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_width="match_parent"
-                android:hint="Keterangan "
-                android:inputType="text"
-                android:layout_height="wrap_content"/>
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:paddingHorizontal="30dp"
-                android:id="@+id/btn_kirim"
-                android:text="Send"/>
-    </LinearLayout>
-
-</FrameLayout>
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyle"
+            android:id="@+id/progressDownloadd"
+            android:visibility="gone"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_nama"
+            android:hint="Masukkan nama"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:inputType="text"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_judul"
+            android:hint="Masukkan judul"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:inputType="text"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et-tanggal"
+            android:hint="Masukkan tanggal"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:inputType="text"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_desc"
+            android:hint="Masukkan deskripsi"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:inputType="textMultiLine"/>
+    <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:paddingHorizontal="50dp"/>
+</LinearLayout>
